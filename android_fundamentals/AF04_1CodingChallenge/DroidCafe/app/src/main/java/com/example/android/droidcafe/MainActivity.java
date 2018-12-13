@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     /**
      * Inflates the menu, and adds items to the action bar if it is present.
      *
@@ -111,15 +112,15 @@ public class MainActivity extends AppCompatActivity {
      */
     public void showDonutOrder(View view) {
 
-        displayToast(getString(R.string.donut_order_message));
+        showItem(getString(R.string.donut_order_message));
+
     }
 
     /**
      * Shows a message that the ice cream sandwich image was clicked.
      */
     public void showIceCreamOrder(View view) {
-
-        displayToast(getString(R.string.ice_cream_order_message));
+        showItem(getString(R.string.ice_cream_order_message));
     }
 
     /**
@@ -127,7 +128,17 @@ public class MainActivity extends AppCompatActivity {
      */
     public void showFroyoOrder(View view) {
 
-        displayToast(getString(R.string.froyo_order_message));
+        showItem(getString(R.string.froyo_order_message));
+    }
+
+    /**
+     * Shows a message and Regists Item name as a mOrderMessage
+     * @param text
+     */
+    private void showItem(String text){
+        mOrderMessage = text;
+        displayToast(mOrderMessage);
+
     }
 
 }
