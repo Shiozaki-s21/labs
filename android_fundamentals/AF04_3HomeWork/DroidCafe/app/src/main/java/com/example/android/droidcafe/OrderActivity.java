@@ -17,6 +17,7 @@
 package com.example.android.droidcafe;
 
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -70,5 +71,22 @@ public class OrderActivity extends AppCompatActivity {
     }
 
 
+    public void showDatePicker(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(),
+                "datePicker");
+    }
 
+
+    public void processDatePickerResult(int year, int month, int day) {
+        String month_string = Integer.toString(month + 1);
+        String day_string = Integer.toString(day);
+        String year_string = Integer.toString(year);
+        String dateMessage = (month_string +
+                "/" + day_string +
+                "/" + year_string);
+
+        Toast.makeText(this, "Date: " + dateMessage,
+                Toast.LENGTH_SHORT).show();
+    }
 }
