@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DemoNavigate</string>
+    <string name="Open">Open!</string>
+    <string name="Close">Close!</string>
+    <string name="menu_import_name">import</string>
+    <string name="menu_gellary_name">gellary</string>
+    <string name="menu_tools_name">tools</string>
+    <string name="menu_share_name">share</string>
+    <string name="menu_Communicate_name">Communicate</string>
+
+</resources>
