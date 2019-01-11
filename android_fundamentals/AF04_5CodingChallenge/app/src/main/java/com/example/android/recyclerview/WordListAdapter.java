@@ -37,6 +37,7 @@ public class WordListAdapter extends
 
     class WordViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
+
         public final TextView wordItemView;
         final WordListAdapter mAdapter;
 
