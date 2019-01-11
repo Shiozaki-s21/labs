@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Scanner;
+
 public class ShowRecipeActivity extends Activity {
 
     private TextView recipeTitle;
@@ -28,10 +30,25 @@ public class ShowRecipeActivity extends Activity {
 
         // Set Image resource
         int picId = getResources().getIdentifier(title,"drawable", getPackageName());
+        mRecipeImageView = findViewById(R.id.recipeImage);
         mRecipeImageView.setImageResource(picId);
 
         // Set text description
-        int descId = getResources().getIdentifier(title, "")
+        int descId = getResources().getIdentifier(title, "raw", getPackageName());
+        Scanner in = new Scanner(getResources().openRawResource(descId));
+        String result = "";
+        while (in.hasNext()) {
+            String tmp = in.nextLine();
+            if (tmp.equals("")) {
+                result += "\n";
+            } else {
+                result += tmp;
+            }
 
+        }
+        in.close();
+
+        mRecipeDescriptionView = findViewById(R.id.recipeDescription);
+        mRecipeDescriptionView.setText(result);
     }
 }

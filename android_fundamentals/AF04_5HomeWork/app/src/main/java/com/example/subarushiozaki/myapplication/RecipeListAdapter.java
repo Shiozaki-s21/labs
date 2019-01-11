@@ -4,7 +4,6 @@ package com.example.subarushiozaki.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +16,17 @@ public class RecipeListAdapter extends
         RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>  {
 
     private final LinkedList<String> mRecipeList;
+    private final LinkedList<String> mRecipeDescriptionList;
     private LayoutInflater mInflater;
     private Context mContext;
     public static final String RECIPE_TITLE = "recipeTitle";
 
-    public RecipeListAdapter(Context context, LinkedList<String> mRecipeList) {
+    public RecipeListAdapter(Context context, LinkedList<String> mRecipeList,
+                             LinkedList<String> mRecipeDescriptionList) {
 
         mInflater = LayoutInflater.from(context);
         this.mRecipeList = mRecipeList;
+        this.mRecipeDescriptionList = mRecipeDescriptionList;
         this.mContext = context;
     }
 
@@ -32,12 +34,15 @@ public class RecipeListAdapter extends
             implements View.OnClickListener {
 
         public final TextView recipeItemView;
+        public final TextView recipeDescription;
         final RecipeListAdapter mAdapter;
 
         public RecipeViewHolder(View item, RecipeListAdapter adapter) {
             super(item);
             recipeItemView = itemView.findViewById(R.id.recipe);
+            recipeDescription = itemView.findViewById(R.id.recipeDes);
             this.mAdapter = adapter;
+
             //TODO Don't forget set Click Listener!!!
             itemView.setOnClickListener(this);
         }
@@ -47,7 +52,6 @@ public class RecipeListAdapter extends
             // Get title
             int mPosition = getLayoutPosition();
             String title = mRecipeList.get(mPosition);
-            Log.d("TAG", title);
 
             //TODO Can't Do that because This class doesn't extend Activity
                 // get picture ID
@@ -69,14 +73,15 @@ public class RecipeListAdapter extends
     public RecipeListAdapter.RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.recipelist_item,
                 parent, false);
-        Log.d("DAMP", "onCreateViewHolder: ");
         return new RecipeViewHolder(mItemView, this);
     }
 
     @Override
     public void onBindViewHolder(RecipeListAdapter.RecipeViewHolder holder, int position) {
         String mCurrent = mRecipeList.get(position);
+        String mCurrentDescription = mRecipeDescriptionList.get(position);
         holder.recipeItemView.setText(mCurrent);
+        holder.recipeDescription.setText(mCurrentDescription);
     }
 
     @Override
