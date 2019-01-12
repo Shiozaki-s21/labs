@@ -10,7 +10,7 @@
         android:id="@+id/recipe"
         style="@style/recipe_title"/>
     <TextView
-        android:id="@+id/recipeDes"
+        android:id="@+id/recipeSmallDescription"
         android:textSize="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

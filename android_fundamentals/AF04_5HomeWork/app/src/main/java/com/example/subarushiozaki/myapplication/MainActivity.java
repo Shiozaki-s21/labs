@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.LinkedList;
+import java.util.Scanner;
 
+// TODO Chenge text view on show recipe act!!
 public class MainActivity extends AppCompatActivity {
 
     // word list for title
@@ -22,14 +24,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // add title for example
-        mRecipeList.add("Miso soup");
-        mRecipeList.add("Subuta");
-        mRecipeList.add("Ganmodoki");
+        for (RecipeTitles r: RecipeTitles.values()) {
+            mRecipeList.add(r.getName());
+        }
+
 
         // add description for example
-        mRecipeDescriptionList.add("Miso soup is a traditional soup in Japan, it's really common and be ate by Japanese everyday.");
-        mRecipeDescriptionList.add("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBbbbb");
-        mRecipeDescriptionList.add("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+        for (String title: mRecipeList) {
+            String fileName = (title.toLowerCase().replace(' ', '_')) + "_small_description";
+            int id = getResources().getIdentifier(fileName, "raw", getPackageName());
+            Scanner in = new Scanner(getResources().openRawResource(id));
+            String result = "";
+            while(in.hasNext()) {
+                result += in.nextLine();
+            }
+            mRecipeDescriptionList.add(result);
+        }
 
 
         mRecyclerView = findViewById(R.id.reyclerview);

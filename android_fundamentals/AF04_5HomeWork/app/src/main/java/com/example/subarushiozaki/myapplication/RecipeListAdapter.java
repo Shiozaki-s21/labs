@@ -40,7 +40,7 @@ public class RecipeListAdapter extends
         public RecipeViewHolder(View item, RecipeListAdapter adapter) {
             super(item);
             recipeItemView = itemView.findViewById(R.id.recipe);
-            recipeDescription = itemView.findViewById(R.id.recipeDes);
+            recipeDescription = itemView.findViewById(R.id.recipeSmallDescription);
             this.mAdapter = adapter;
 
             //TODO Don't forget set Click Listener!!!

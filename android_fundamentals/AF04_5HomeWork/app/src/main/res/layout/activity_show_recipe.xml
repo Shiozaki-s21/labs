@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:text="recipeTitle"
         android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/miso_soup"
+        android:src="@drawable/miso_shiru"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -35,7 +37,7 @@
     <TextView
         android:id="@+id/recipeDescription"
         android:layout_width="match_parent"
-        android:layout_height="236dp"
+        android:layout_height="225dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
